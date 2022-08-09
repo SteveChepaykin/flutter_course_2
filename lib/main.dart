@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_course_2/classes/cat_class.dart';
 import 'package:flutter_course_2/classes/profile_class.dart';
+import 'package:flutter_course_2/widgets/cat_widget.dart';
 import 'package:flutter_course_2/widgets/profile_widget.dart';
 
 void main() {
@@ -38,6 +39,11 @@ class _MyHomePageState extends State<MyHomePage> {
     phone: '85556667799',
     profileIcon: Icons.person,
   );
+  CatClass cat = CatClass(
+    age: 2,
+    name: 'Гав',
+    breed: 'Рыжий',
+  );
 
   void _incrementCounter() {
     setState(() {
@@ -45,17 +51,18 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  CatClass cat = CatClass(age: 2, name: 'Гав', breed: 'Рыжий');
-
   @override
   Widget build(BuildContext context) {
-    print(cat);
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Center(
-        child: ProfileWidget(profile: profile),
+      body: Row(
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          ProfileWidget(profile: profile),
+          CatWidget(cat: cat),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,

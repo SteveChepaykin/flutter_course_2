@@ -20,7 +20,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Icon(
             widget.profile.profileIcon,
@@ -31,7 +30,6 @@ class _ProfileWidgetState extends State<ProfileWidget> {
           ),
           Column(
             mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Row(
                 children: [

@@ -12,4 +12,8 @@ class CatClass {
   CatClass.young({required this.name, this.breed = 'Белый'}) {
     age = 1;
   }
+
+  void addAge() {
+    age += 1;
+  }
 }
