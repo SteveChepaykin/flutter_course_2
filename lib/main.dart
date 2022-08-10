@@ -3,6 +3,7 @@ import 'package:flutter_course_2/classes/cat_class.dart';
 import 'package:flutter_course_2/classes/profile_class.dart';
 import 'package:flutter_course_2/widgets/cat_widget.dart';
 import 'package:flutter_course_2/widgets/profile_widget.dart';
+import 'package:flutter_course_2/creatures_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -57,15 +58,17 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Row(
+      body: Column(
         // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           ProfileWidget(profile: profile),
-          CatWidget(cat: cat),
+          ...CreaturesController().cats.map((e) {
+            return CatWidget(cat: e);
+          })
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: CreaturesController().addAgeToAll,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
